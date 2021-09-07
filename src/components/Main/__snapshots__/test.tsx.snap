@@ -50,17 +50,17 @@ exports[`<Main /> should render the heading 1`] = `
   <img
     alt="Imagem de um átomo e React Avançado escrito ao lado."
     class="c1"
-    src="/img/logo.svg"
+    src="/img/badico-logo.svg"
   />
   <h1
     class="c2"
   >
-    React Avançado
+    React Testing Examples
   </h1>
   <h2
     class="c3"
   >
-    TypeScript, ReactJS, NextJS e Styled Components
+    A simple project with testing examples
   </h2>
   <img
     alt="Um desenvolvedor de frente para uma tela com código."
