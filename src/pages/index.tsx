@@ -1,5 +1,5 @@
-import Main from 'components/Main'
+import Form from 'components/Form'
 
 export default function Home() {
-  return <Main />
+  return <Form />
 }
