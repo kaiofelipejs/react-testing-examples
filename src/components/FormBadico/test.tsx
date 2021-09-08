@@ -15,6 +15,7 @@ describe('<FormBadico />', () => {
     const description = screen.getByText(
       /nosso app estará pronto em breve, se cadastre para te avisarmos\./i
     )
+
     expect(title).toBeInTheDocument()
     expect(description).toBeInTheDocument()
   })
@@ -45,7 +46,6 @@ describe('<FormBadico />', () => {
     render(<FormBadico />)
 
     const element = screen.getByPlaceholderText(placeholder)
-
     userEvent.type(element, value)
 
     expect(element).toHaveValue(value)
@@ -57,13 +57,11 @@ describe('<FormBadico />', () => {
     const element = screen.getByPlaceholderText(
       'Seu número do Whatsapp com DDD'
     )
-
     userEvent.type(element, 'invalid')
 
     const invalidMessage = screen.getByText(
       /número inválido, por favor verifique-o novamente/i
     )
-
     const submitButton = screen.getByRole('button', { name: 'Cadastrar' })
 
     expect(invalidMessage).toBeInTheDocument()
