@@ -1,5 +1,5 @@
-import Form from 'components/Form'
+import FormBadico from 'components/FormBadico'
 
 export default function Home() {
-  return <Form />
+  return <FormBadico />
 }
