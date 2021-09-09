@@ -1,7 +1,8 @@
 import * as S from './styles'
 import { useState } from 'react'
+import Input from 'components/Input'
 
-const FormBadico = () => {
+const FormBadico = (): JSX.Element => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,7 +41,7 @@ const FormBadico = () => {
 
       <form onSubmit={handleSubmit}>
         <S.Label htmlFor="name">
-          <S.Input
+          <Input
             id="name"
             name="name"
             onChange={handleChange}
@@ -50,21 +51,21 @@ const FormBadico = () => {
         </S.Label>
 
         <S.Label htmlFor="email">
-          <S.Input
-            value={formData.email}
-            name="email"
+          <Input
             id="email"
+            name="email"
             onChange={handleChange}
             placeholder="E-mail"
+            value={formData.email}
           />
         </S.Label>
 
         <S.Label htmlFor="whatsapp">
-          <S.Input
-            name="whatsapp"
+          <Input
             id="whatsapp"
-            placeholder="Seu número do Whatsapp com DDD"
+            name="whatsapp"
             onChange={handleChange}
+            placeholder="Seu número do Whatsapp com DDD"
             value={formData.whatsapp}
           />
         </S.Label>

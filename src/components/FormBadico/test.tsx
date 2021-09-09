@@ -6,6 +6,10 @@ import FormBadico from '.'
 console.log = jest.fn()
 
 describe('<FormBadico />', () => {
+  const fakeName = 'fake name'
+  const fakeEmail = 'email@email.com'
+  const fakeWhatsapp = '48999999999'
+
   it('should render with title and description', () => {
     render(<FormBadico />)
 
@@ -23,25 +27,25 @@ describe('<FormBadico />', () => {
   it('should call console.log when form is submit', () => {
     render(<FormBadico />)
 
-    const name = screen.getByPlaceholderText('Seu nome')
-    const email = screen.getByPlaceholderText('E-mail')
-    const whatsapp = screen.getByPlaceholderText(
+    const inputName = screen.getByPlaceholderText('Seu nome')
+    const inputEmail = screen.getByPlaceholderText('E-mail')
+    const inputWhatsapp = screen.getByPlaceholderText(
       'Seu número do Whatsapp com DDD'
     )
     const submitButton = screen.getByRole('button', { name: 'Cadastrar' })
 
-    userEvent.type(name, 'name')
-    userEvent.type(email, 'email@email.com')
-    userEvent.type(whatsapp, '48999999999')
+    userEvent.type(inputName, fakeName)
+    userEvent.type(inputEmail, fakeEmail)
+    userEvent.type(inputWhatsapp, fakeWhatsapp)
     userEvent.click(submitButton)
 
     expect(console.log).toBeCalledWith('Submit!')
   })
 
   it.each([
-    ['name', 'Badico', 'Seu nome'],
-    ['email', 'contato@badico.com', 'E-mail'],
-    ['whatsapp', '4899999-9999', 'Seu número do Whatsapp com DDD']
+    ['name', fakeName, 'Seu nome'],
+    ['email', fakeEmail, 'E-mail'],
+    ['whatsapp', fakeWhatsapp, 'Seu número do Whatsapp com DDD']
   ])('should update %s when type', (_, value, placeholder) => {
     render(<FormBadico />)
 

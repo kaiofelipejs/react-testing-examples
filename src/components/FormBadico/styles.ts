@@ -23,16 +23,6 @@ export const Label = styled.label`
   font-size: 1.2rem;
 `
 
-export const Input = styled.input`
-  margin-bottom: 1.2rem;
-  width: 283px;
-  height: 32px;
-  border-radius: 10px;
-  border: 0px;
-  padding: 8px;
-  font-size: 12px;
-`
-
 export const Checkbox = styled.input.attrs({
   type: 'checkbox'
 })`
