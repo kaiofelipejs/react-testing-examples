@@ -6,9 +6,9 @@ const FormBadico = (): JSX.Element => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    whatsapp: ''
+    whatsapp: '',
+    isValidWhatsapp: true
   })
-  const [isValidWhatsapp, setIsValidWhatsapp] = useState(true)
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -21,7 +21,10 @@ const FormBadico = (): JSX.Element => {
     setFormData((prevState) => ({ ...prevState, [key]: value }))
 
     if (key === 'whatsapp') {
-      setIsValidWhatsapp(isValidWhatsappNumber(value))
+      setFormData((prevState) => ({
+        ...prevState,
+        isValidWhatsapp: isValidWhatsappNumber(value)
+      }))
     }
   }
 
@@ -69,12 +72,12 @@ const FormBadico = (): JSX.Element => {
             value={formData.whatsapp}
           />
         </S.Label>
-        {!isValidWhatsapp && (
+        {!formData.isValidWhatsapp && (
           <p>Número inválido, por favor verifique-o novamente</p>
         )}
 
         <S.ButtonWrapper>
-          <S.Button type="submit" disabled={!isValidWhatsapp}>
+          <S.Button type="submit" disabled={!formData.isValidWhatsapp}>
             Cadastrar
           </S.Button>
         </S.ButtonWrapper>
